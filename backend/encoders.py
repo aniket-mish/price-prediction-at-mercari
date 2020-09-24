@@ -3,12 +3,12 @@ from scipy.sparse import csr_matrix, hstack
 import pandas as pd
 
 # Initialize Files
-enc_c0 = joblib.load('./assets/files/category-1.pickle')
-enc_c1 = joblib.load('./assets/files/category-2.pickle')
-enc_c2 = joblib.load('./assets/files/category-3.pickle')
+enc_c0 = joblib.load('backend/assets/files/category-1.pickle')
+enc_c1 = joblib.load('backend/assets/files/category-2.pickle')
+enc_c2 = joblib.load('backend/assets/files/category-3.pickle')
 
-enc_n = joblib.load('./assets/files/name.pickle')
-enc_t = joblib.load('./assets/files/text.pickle')
+enc_n = joblib.load('backend/assets/files/name.pickle')
+enc_t = joblib.load('backend/assets/files/text.pickle')
 
 # Encode features
 def get_encodings(data):

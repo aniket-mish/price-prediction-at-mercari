@@ -8,7 +8,7 @@ from sklearn.metrics import mean_squared_log_error
 
 def f_regr():
 
-    model_in = Input(shape = (363097,), dtype = 'float32', sparse = True)
+    model_in = Input(shape = (6369,), dtype = 'float32', sparse = True)
     out = Dense(256, activation = 'relu')(model_in)
     out = Dropout(0.2)(out)
     out = Dense(128, activation = 'relu')(out)

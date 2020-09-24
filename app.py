@@ -11,13 +11,9 @@ from backend.models import f_regr
 
 app = Flask(__name__)
 
-model = None
 scaler = joblib.load('./backend/assets/files/scaler.pickle')
-
-def load_model():
-    global model
-    model = f_regr()
-    model.load_weights('./backend/assets/models/model.h5')
+model = f_regr()
+model.load_weights('./backend/assets/models/model.h5')
 
 columns = ['name', 'item_condition_id', 'brand_name', 'category_name', 'shipping', 'item_description']
 
@@ -45,5 +41,4 @@ def predict():
 
 
 if __name__ == '__main__':
-    load_model()
     app.run()
