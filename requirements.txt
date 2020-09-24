@@ -1,9 +1,9 @@
 Flask
 joblib
 matplotlib
-numpy
+numpy==1.16.0
 pandas
 requests
 scikit-learn
-scipy
+scipy==1.4.1
 tensorflow

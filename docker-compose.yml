@@ -1,6 +1,6 @@
-version: '3.8'
+version: "3.8"
 services:
-nginx:
+  nginx:
     image: nginx:latest
     container_name: nginx
     depends_on:
@@ -8,19 +8,17 @@ nginx:
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
     networks:
-     - net
+      - net
     ports:
       - 80:80
   flask:
     build:
       context: ./
       dockerfile: Dockerfile
-    env_file:
-      - .env
     container_name: flask
     networks:
       net:
         aliases:
-          - pp
+          - flask-app
 networks:
   net:
