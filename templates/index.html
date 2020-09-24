@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html style="background-color: #dfe2ff">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Price Prediction</title>
+    <div style="display: flex; justify-content: center; margin-top: 10px">
+      <img
+        src="{{ url_for('static', filename='icons/logo.png') }}"
+        class="card-img-top"
+        alt="logo"
+        style="width: 200px; display: flex; justify-content: center"
+      />
+    </div>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/index.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body style="background-color: #dfe2ff">
+    <div
+      class="container-fluid"
+      style="
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        margin-bottom: 50px;
+      "
+    >
+      <div class="card" style="width: 35rem">
+        <div class="card-body">
+          <form action="{{ url_for('predict') }}" method="post">
+            <div class="form-group">
+              <label for="exampleInputName">Name</label>
+              <input type="text" class="form-control" name="name" id="name" />
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlSelect">Condition</label>
+              <select class="form-control" id="condition" name="condition">
+                <option value="1">New</option>
+                <option value="2">Like New</option>
+                <option value="3">Fair</option>
+                <option value="4">Like Poor</option>
+                <option value="5">Poor</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Brand</label>
+              <input type="text" class="form-control" id="brand" name="brand" />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Category</label>
+              <input
+                type="text"
+                class="form-control"
+                id="category"
+                name="category"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Shipping</label>
+              <select class="form-control" id="shipping" name="shipping">
+                <option value="1">Seller</option>
+                <option value="0">Buyer</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Description</label>
+              <textarea
+                class="form-control"
+                id="description"
+                rows="4"
+                name="description"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict Price</button>
+          </form>
+        </div>
+        <div
+          class="prediction-txt"
+          style="margin-bottom: 30px; margin-left: 20px; color: teal;"
+        >
+          {{ price }}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
