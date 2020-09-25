@@ -2,7 +2,6 @@
 import joblib
 import numpy as np
 import pandas as pd
-import os
 
 from flask import Flask, request, redirect, render_template, jsonify
 from backend.preprocessing import preprocess
@@ -13,6 +12,7 @@ from backend.models import f_regr
 app = Flask(__name__)
 
 scaler = joblib.load('./backend/assets/files/scaler.pickle')
+
 model = f_regr()
 model.load_weights('./backend/assets/models/model.h5')
 
@@ -42,5 +42,4 @@ def predict():
 
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 4242))
-    app.run(host = '127.0.0.1', port = port)
+    app.run()
