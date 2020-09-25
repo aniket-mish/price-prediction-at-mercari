@@ -13,4 +13,4 @@ COPY . .
 RUN pip install -r requirements.txt
 
 # Define our command to be run when launching the container
-CMD python app.py
+CMD ["python", "app.py"]
