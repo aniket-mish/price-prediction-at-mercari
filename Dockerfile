@@ -1,6 +1,4 @@
-FROM alpine:latest
-
-RUN apt-get install -y python-pip python-dev build-essential
+FROM python:3.8-slim
 
 WORKDIR /app
 
