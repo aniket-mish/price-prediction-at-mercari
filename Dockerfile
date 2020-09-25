@@ -1,13 +1,11 @@
-FROM python:3.8-slim-buster
+FROM alpine:latest
 
-# set "app" as the working directory from which CMD, RUN, ADD references
+RUN apt-get install -y python-pip python-dev build-essential
+
 WORKDIR /app
 
-# now copy all the files in this directory to /code
 COPY . /app
 
-# pip install the local requirements.txt
 RUN pip install -r requirements.txt
 
-# Define our command to be run when launching the container
-CMD ["flask", "run"]
+CMD ["python", "app.py"]
