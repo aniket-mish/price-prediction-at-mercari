@@ -2,6 +2,7 @@
 import joblib
 import numpy as np
 import pandas as pd
+import os
 
 from flask import Flask, request, redirect, render_template, jsonify
 from backend.preprocessing import preprocess
@@ -41,4 +42,5 @@ def predict():
 
 
 if __name__ == '__main__':
-    app.run()
+    port = int(os.environ.get('PORT', 4242))
+    app.run(host = '127.0.0.1', port = port)
