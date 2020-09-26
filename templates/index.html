@@ -4,14 +4,6 @@
   <head>
     <meta charset="UTF-8" />
     <title>Price Prediction</title>
-    <div style="display: flex; justify-content: center; margin-top: 10px">
-      <img
-        src="{{ url_for('static', filename='icons/logo.png') }}"
-        class="card-img-top"
-        alt="logo"
-        style="width: 200px; display: flex; justify-content: center"
-      />
-    </div>
     <link
       type="text/css"
       rel="stylesheet"
@@ -27,76 +19,101 @@
   <body style="background-color: #dfe2ff">
     <div
       class="container-fluid"
-      style="display: flex; justify-content: center; margin-top: 30px"
+      style="display: flex; justify-content: center; margin-top: 10px"
     >
-      <div
-        class="card shadow p-3 mb-5 bg-white rounded"
-        style="width: 40rem; margin-bottom: 0px"
-      >
-        <div class="card-body">
-          <form action="{{ url_for('predict') }}" method="post">
-            <div class="row">
-              <div class="form-group col-4">
-                <label for="exampleInputName">Name</label>
-                <input type="text" class="form-control" name="name" id="name" />
-              </div>
-              <div class="form-group col-4">
-                <label for="exampleFormControlSelect">Condition</label>
-                <select class="form-control" id="condition" name="condition">
-                  <option value="1">New</option>
-                  <option value="2">Like New</option>
-                  <option value="3">Fair</option>
-                  <option value="4">Like Poor</option>
-                  <option value="5">Poor</option>
-                </select>
-              </div>
-              <div class="form-group col-4">
-                <label for="exampleFormControlSelect1">Shipping</label>
-                <select class="form-control" id="shipping" name="shipping">
-                  <option value="1">Seller</option>
-                  <option value="0">Buyer</option>
-                </select>
-              </div>
-            </div>
+      <div class="card shadow p-3 bg-white rounded" style="width: 60rem">
+        <div class="row no-gutters">
+          <div class="col-md-6">
+            <img
+              src="{{ url_for('static', filename='icons/logo.png') }}"
+              class="card-img-top"
+              alt="logo"
+              style="width: 200px; margin-left: 30%; margin-top: 15%"
+            />
+            <img
+              src="{{ url_for('static', filename='icons/illustration.jpg') }}"
+              class="card-img"
+              alt="illustration"
+            />
+          </div>
+          <div class="col-md-6">
+            <div class="card-body">
+              <form action="{{ url_for('predict') }}" method="post">
+                <div class="form-group">
+                  <label for="exampleInputName">Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    id="name"
+                  />
+                </div>
+                <div class="row">
+                  <div class="form-group col-6">
+                    <label for="exampleFormControlSelect">Condition</label>
+                    <select
+                      class="form-control"
+                      id="condition"
+                      name="condition"
+                    >
+                      <option value="1">New</option>
+                      <option value="2">Like New</option>
+                      <option value="3">Good</option>
+                      <option value="4">Fair</option>
+                      <option value="5">Poor</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-6">
+                    <label for="exampleFormControlSelect1">Shipping</label>
+                    <select class="form-control" id="shipping" name="shipping">
+                      <option value="1">Seller</option>
+                      <option value="0">Buyer</option>
+                    </select>
+                  </div>
+                </div>
 
-            <div class="row">
-              <div class="form-group col-6">
-                <label for="exampleInputPassword1">Brand</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="brand"
-                  name="brand"
-                />
-              </div>
-              <div class="form-group col-6">
-                <label for="exampleInputPassword1">Category</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="category"
-                  name="category"
-                />
-                <small class="form-text text-muted"
-                  >For Example: Women/Jewelry/Necklaces</small
-                >
-              </div>
-            </div>
+                <div class="row">
+                  <div class="form-group col-6">
+                    <label for="exampleInputPassword1">Brand</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="brand"
+                      name="brand"
+                    />
+                  </div>
+                  <div class="form-group col-6">
+                    <label for="exampleInputPassword1">Category</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="category"
+                      name="category"
+                    />
+                    <small class="form-text text-muted"
+                      >For Example: Women/Jewelry/Necklaces</small
+                    >
+                  </div>
+                </div>
 
-            <div class="form-group">
-              <label for="exampleInputPassword1">Description</label>
-              <textarea
-                class="form-control"
-                id="description"
-                rows="4"
-                name="description"
-              ></textarea>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Description</label>
+                  <textarea
+                    class="form-control"
+                    id="description"
+                    rows="4"
+                    name="description"
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  Predict Price
+                </button>
+              </form>
             </div>
-            <button type="submit" class="btn btn-primary">Predict Price</button>
-          </form>
-        </div>
-        <div class="prediction-txt" style="margin-left: 20px; color: teal">
-          {{ price }}
+            <div class="prediction-txt" style="margin-left: 20px; color: teal">
+              {{ price }}
+            </div>
+          </div>
         </div>
       </div>
     </div>

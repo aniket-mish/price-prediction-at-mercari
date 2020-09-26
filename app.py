@@ -39,7 +39,7 @@ def predict():
     pred = model.predict(encoded_data)
     prediction = np.expm1(scaler.inverse_transform(pred.reshape(-1, 1))[:,0])
 
-    return render_template('index.html', price='Recommended Price : {:.2f}'.format(prediction[0]))
+    return render_template('index.html', price='Recommended Price : ${:.2f}'.format(prediction[0]))
 
 
 if __name__ == '__main__':
